@@ -1,0 +1,46 @@
+{
+    "name": "minhyung/laravel-openobserve",
+    "description": "Laravel package for OpenObserve",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Minhyung Park",
+            "email": "urlinee@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0",
+        "orchestra/testbench": "^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Minhyung\\LaravelOpenObserve\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Minhyung\\LaravelOpenObserve\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Minhyung\\LaravelOpenObserve\\OpenObserveServiceProvider"
+            ],
+            "aliases": {
+                "OpenObserve": "Minhyung\\LaravelOpenObserve\\Facades\\OpenObserve"
+            }
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
