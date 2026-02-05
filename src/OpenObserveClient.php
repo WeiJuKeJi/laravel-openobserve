@@ -11,7 +11,7 @@ class OpenObserveClient
     protected string $url;
     protected string $organization;
     protected string $stream;
-    protected string $username;
+    protected string $email;
     protected string $password;
     protected int $timeout;
     protected bool $sslVerify;
@@ -24,7 +24,7 @@ class OpenObserveClient
         $this->url = rtrim($config['url'] ?? '', '/');
         $this->organization = $config['organization'] ?? 'default';
         $this->stream = $config['stream'] ?? 'default';
-        $this->username = $config['auth']['username'] ?? '';
+        $this->email = $config['auth']['email'] ?? '';
         $this->password = $config['auth']['password'] ?? '';
         $this->timeout = $config['timeout'] ?? 5;
         $this->sslVerify = $config['ssl_verify'] ?? true;
@@ -118,7 +118,7 @@ class OpenObserveClient
      */
     protected function buildRequest(): PendingRequest
     {
-        $request = Http::withBasicAuth($this->username, $this->password)
+        $request = Http::withBasicAuth($this->email, $this->password)
             ->timeout($this->timeout)
             ->acceptJson();
 

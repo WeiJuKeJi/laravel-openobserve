@@ -23,7 +23,7 @@ test('config has all required keys', function () {
 
     expect($config)->toBeArray()
         ->toHaveKeys(['enabled', 'url', 'organization', 'stream', 'auth', 'batch_size', 'timeout', 'ssl_verify', 'additional_fields'])
-        ->and($config['auth'])->toHaveKeys(['username', 'password']);
+        ->and($config['auth'])->toHaveKeys(['email', 'password']);
 });
 
 test('config values match environment setup', function () {

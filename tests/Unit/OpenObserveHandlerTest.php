@@ -12,7 +12,7 @@ function makeDisabledClient(): OpenObserveClient
         'url' => 'http://localhost:5080',
         'organization' => 'default',
         'stream' => 'default',
-        'auth' => ['username' => 'test', 'password' => 'test'],
+        'auth' => ['email' => 'test', 'password' => 'test'],
         'batch_size' => 100,
     ]);
 }

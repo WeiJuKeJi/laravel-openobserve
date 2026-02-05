@@ -50,7 +50,7 @@ return [
     |
     */
     'auth' => [
-        'username' => env('OPENOBSERVE_USERNAME'),
+        'email' => env('OPENOBSERVE_EMAIL'),
         'password' => env('OPENOBSERVE_PASSWORD'),
     ],
 

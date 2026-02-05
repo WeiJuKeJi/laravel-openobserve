@@ -34,7 +34,7 @@ class TestConnectionCommand extends Command
         $this->line('  URL: ' . $config['url']);
         $this->line('  Organization: ' . $config['organization']);
         $this->line('  Stream: ' . $config['stream']);
-        $this->line('  Username: ' . $config['auth']['username']);
+        $this->line('  Email: ' . $config['auth']['email']);
         $this->newLine();
 
         try {

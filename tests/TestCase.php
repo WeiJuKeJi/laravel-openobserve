@@ -27,7 +27,7 @@ abstract class TestCase extends BaseTestCase
         $app['config']->set('openobserve.url', 'http://localhost:5080');
         $app['config']->set('openobserve.organization', 'default');
         $app['config']->set('openobserve.stream', 'default');
-        $app['config']->set('openobserve.auth.username', 'test@example.com');
+        $app['config']->set('openobserve.auth.email', 'test@example.com');
         $app['config']->set('openobserve.auth.password', 'password');
     }
 }

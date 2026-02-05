@@ -45,7 +45,7 @@ OPENOBSERVE_ENABLED=true
 OPENOBSERVE_URL=http://localhost:5080
 OPENOBSERVE_ORGANIZATION=default
 OPENOBSERVE_STREAM=laravel-logs
-OPENOBSERVE_USERNAME=your-email@example.com
+OPENOBSERVE_EMAIL=your-email@example.com
 OPENOBSERVE_PASSWORD=your-password
 ```
 
@@ -57,7 +57,7 @@ OPENOBSERVE_PASSWORD=your-password
 | `url` | `OPENOBSERVE_URL` | `http://localhost:5080` |
 | `organization` | `OPENOBSERVE_ORGANIZATION` | `default` |
 | `stream` | `OPENOBSERVE_STREAM` | `default` |
-| `auth.username` | `OPENOBSERVE_USERNAME` | - |
+| `auth.email` | `OPENOBSERVE_EMAIL` | - |
 | `auth.password` | `OPENOBSERVE_PASSWORD` | - |
 | `batch_size` | `OPENOBSERVE_BATCH_SIZE` | `100` |
 | `timeout` | `OPENOBSERVE_TIMEOUT` | `5` |

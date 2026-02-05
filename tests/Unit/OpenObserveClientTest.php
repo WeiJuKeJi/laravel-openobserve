@@ -11,7 +11,7 @@ function makeClient(array $overrides = []): OpenObserveClient
         'organization' => 'test-org',
         'stream' => 'test-stream',
         'auth' => [
-            'username' => 'test@example.com',
+            'email' => 'test@example.com',
             'password' => 'password',
         ],
         'timeout' => 5,
