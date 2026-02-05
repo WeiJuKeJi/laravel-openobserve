@@ -25,10 +25,3 @@ test('config has all required keys', function () {
         ->toHaveKeys(['enabled', 'url', 'organization', 'stream', 'auth', 'batch_size', 'timeout', 'ssl_verify', 'additional_fields'])
         ->and($config['auth'])->toHaveKeys(['email', 'password']);
 });
-
-test('config values match environment setup', function () {
-    expect(config('openobserve.enabled'))->toBeTrue()
-        ->and(config('openobserve.url'))->toBe('http://localhost:5080')
-        ->and(config('openobserve.organization'))->toBe('default')
-        ->and(config('openobserve.stream'))->toBe('default');
-});

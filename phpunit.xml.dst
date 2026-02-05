@@ -15,7 +15,7 @@
         </include>
     </source>
     <php>
-        <env name="OPENOBSERVE_ENABLED" value="false"/>
+        <env name="OPENOBSERVE_ENABLED" value="true"/>
         <env name="OPENOBSERVE_URL" value="http://localhost:5080"/>
         <env name="OPENOBSERVE_ORGANIZATION" value="default"/>
         <env name="OPENOBSERVE_STREAM" value="default"/>
