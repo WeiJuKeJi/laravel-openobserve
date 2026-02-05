@@ -19,7 +19,7 @@ A Laravel package for integrating with [OpenObserve](https://openobserve.ai). Se
 
 ## Requirements
 
-- PHP 8.1+
+- PHP 8.3+
 - Laravel 11.x or 12.x
 
 ## Installation
@@ -182,5 +182,5 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 ## Credits
 
-- [Minhyung Park](https://github.com/minhyung)
+- [Minhyung Park](https://github.com/overworks)
 - [All Contributors](../../contributors)

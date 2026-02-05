@@ -17,7 +17,7 @@
 
 ## 요구사항
 
-- PHP 8.1 이상
+- PHP 8.3 이상
 - Laravel 11.x 또는 12.x
 
 ## 설치
@@ -180,5 +180,5 @@ MIT 라이선스. 자세한 내용은 [License File](LICENSE)을 참조하세요
 
 ## 크레딧
 
-- [Minhyung Park](https://github.com/minhyung)
+- [Minhyung Park](https://github.com/overworks)
 - [All Contributors](../../contributors)

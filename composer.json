@@ -1,8 +1,8 @@
 {
     "name": "minhyung/laravel-openobserve",
     "description": "Laravel package for OpenObserve integration - centralized log management and monitoring",
-    "keywords": ["laravel", "openobserve", "logging", "monitoring", "observability"],
     "type": "library",
+    "keywords": ["laravel", "openobserve", "logging", "monitoring", "observability"],
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +10,17 @@
             "email": "urlinee@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/overworks/laravel-openobserve/issues",
+        "source": "https://github.com/overworks/laravel-openobserve"
+    },
     "require": {
         "php": "^8.3",
         "illuminate/http": "^11.0|^12.0",
         "illuminate/support": "^11.0|^12.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^10.0|^11.0",
+        "orchestra/testbench": "^9.0|^10.0",
         "pestphp/pest": "^4.0"
     },
     "autoload": {
