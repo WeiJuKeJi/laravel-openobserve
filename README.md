@@ -1,6 +1,6 @@
 # Laravel OpenObserve
 
-[![Tests](https://github.com/minhyung/laravel-openobserve/actions/workflows/tests.yml/badge.svg?branch=0.x)](https://github.com/minhyung/laravel-openobserve/actions/workflows/tests.yml)
+[![Tests](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml/badge.svg?branch=0.x)](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
 [![Total Downloads](https://img.shields.io/packagist/dt/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
 
