@@ -2,10 +2,12 @@
 
 namespace Minhyung\LaravelOpenObserve;
 
-use RuntimeException;
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Http;
 
 class OpenObserveClient
 {
+    protected bool $enabled;
     protected string $url;
     protected string $organization;
     protected string $stream;
@@ -18,6 +20,7 @@ class OpenObserveClient
 
     public function __construct(array $config)
     {
+        $this->enabled = $config['enabled'] ?? true;
         $this->url = rtrim($config['url'] ?? '', '/');
         $this->organization = $config['organization'] ?? 'default';
         $this->stream = $config['stream'] ?? 'default';
@@ -68,7 +71,7 @@ class OpenObserveClient
      */
     public function sendBatch(array $logs): bool
     {
-        if (empty($logs)) {
+        if (!$this->enabled || empty($logs)) {
             return true;
         }
 
@@ -80,37 +83,12 @@ class OpenObserveClient
         );
 
         try {
-            $ch = curl_init($url);
+            $response = $this->buildRequest()->post($url, $logs);
 
-            if ($ch === false) {
-                throw new RuntimeException('Failed to initialize cURL');
-            }
-
-            curl_setopt_array($ch, [
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => json_encode($logs),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HTTPHEADER => [
-                    'Content-Type: application/json',
-                ],
-                CURLOPT_USERPWD => $this->username . ':' . $this->password,
-                CURLOPT_TIMEOUT => $this->timeout,
-                CURLOPT_SSL_VERIFYPEER => $this->sslVerify,
-                CURLOPT_SSL_VERIFYHOST => $this->sslVerify ? 2 : 0,
-            ]);
-
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $error = curl_error($ch);
-
-            curl_close($ch);
-
-            if ($response === false) {
-                throw new RuntimeException("cURL error: {$error}");
-            }
-
-            if ($httpCode < 200 || $httpCode >= 300) {
-                throw new RuntimeException("HTTP error {$httpCode}: {$response}");
+            if (!$response->successful()) {
+                throw new \RuntimeException(
+                    "HTTP error {$response->status()}: {$response->body()}"
+                );
             }
 
             return true;
@@ -133,6 +111,22 @@ class OpenObserveClient
         ];
 
         return $this->send($testData);
+    }
+
+    /**
+     * Build a configured HTTP request instance.
+     */
+    protected function buildRequest(): PendingRequest
+    {
+        $request = Http::withBasicAuth($this->username, $this->password)
+            ->timeout($this->timeout)
+            ->acceptJson();
+
+        if (!$this->sslVerify) {
+            $request->withoutVerifying();
+        }
+
+        return $request;
     }
 
     /**

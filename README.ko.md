@@ -4,41 +4,39 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
 [![Total Downloads](https://img.shields.io/packagist/dt/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
 
-A Laravel package for integrating with [OpenObserve](https://openobserve.ai). Send your logs to OpenObserve for centralized log management and monitoring.
+[OpenObserve](https://openobserve.ai)를 Laravel 애플리케이션에 통합하기 위한 패키지입니다. 로그를 OpenObserve로 전송하여 중앙 집중식 로그 관리 및 모니터링을 제공합니다.
 
-**[한국어 문서](README.ko.md)**
+## 기능
 
-## Features
+- Laravel 로깅 시스템과 완벽한 통합
+- 배치 처리를 통한 효율적인 로그 전송
+- 설정 가능한 추가 필드
+- Facade를 통한 직접 API 접근
+- 예외 정보 자동 캡처 (클래스명, 메시지, 코드, 파일, 라인, 스택트레이스)
+- Artisan 커맨드를 통한 연결 테스트
 
-- Seamless integration with Laravel's logging system
-- Efficient log transmission via batch processing
-- Configurable additional fields on all log entries
-- Direct API access through Facade
-- Automatic exception information capture (class, message, code, file, line, trace)
-- Artisan command for connection testing
+## 요구사항
 
-## Requirements
+- PHP 8.1 이상
+- Laravel 11.x 또는 12.x
 
-- PHP 8.1+
-- Laravel 11.x or 12.x
+## 설치
 
-## Installation
-
-Install the package via Composer:
+Composer를 통해 패키지를 설치합니다:
 
 ```bash
 composer require minhyung/laravel-openobserve
 ```
 
-Publish the configuration file:
+설정 파일을 퍼블리시합니다:
 
 ```bash
 php artisan vendor:publish --tag=openobserve-config
 ```
 
-## Configuration
+## 설정
 
-Add OpenObserve connection details to your `.env` file:
+`.env` 파일에 OpenObserve 연결 정보를 추가합니다:
 
 ```env
 OPENOBSERVE_ENABLED=true
@@ -49,10 +47,10 @@ OPENOBSERVE_USERNAME=your-email@example.com
 OPENOBSERVE_PASSWORD=your-password
 ```
 
-### All Configuration Options
+### 전체 설정 옵션
 
-| Option | Env Variable | Default |
-|--------|-------------|---------|
+| 옵션 | 환경변수 | 기본값 |
+|------|---------|--------|
 | `enabled` | `OPENOBSERVE_ENABLED` | `false` |
 | `url` | `OPENOBSERVE_URL` | `http://localhost:5080` |
 | `organization` | `OPENOBSERVE_ORGANIZATION` | `default` |
@@ -64,13 +62,13 @@ OPENOBSERVE_PASSWORD=your-password
 | `ssl_verify` | `OPENOBSERVE_SSL_VERIFY` | `true` |
 | `additional_fields` | `APP_ENV`, `APP_NAME` | `['environment', 'application']` |
 
-### Laravel Logging Channel Setup
+### Laravel 로깅 채널 설정
 
-Add the OpenObserve channel to your `config/logging.php`:
+`config/logging.php` 파일에 OpenObserve 채널을 추가합니다:
 
 ```php
 'channels' => [
-    // ... existing channels
+    // ... 기존 채널들
 
     'openobserve' => [
         'driver' => 'custom',
@@ -79,7 +77,7 @@ Add the OpenObserve channel to your `config/logging.php`:
         'name' => 'openobserve',
     ],
 
-    // Optionally add openobserve to a stack channel
+    // 스택 채널에 openobserve 추가 (선택사항)
     'stack' => [
         'driver' => 'stack',
         'channels' => ['single', 'openobserve'],
@@ -88,53 +86,53 @@ Add the OpenObserve channel to your `config/logging.php`:
 ],
 ```
 
-Set the default log channel in your `.env` file:
+`.env` 파일에서 기본 로그 채널을 설정합니다:
 
 ```env
-LOG_CHANNEL=stack  # or 'openobserve'
+LOG_CHANNEL=stack  # 또는 'openobserve'
 ```
 
-## Usage
+## 사용법
 
-### Laravel Logging
+### Laravel 로깅
 
-Use it just like standard Laravel logging:
+일반적인 Laravel 로깅 방식으로 사용할 수 있습니다:
 
 ```php
 use Illuminate\Support\Facades\Log;
 
-Log::info('User logged in', ['user_id' => 123]);
-Log::error('An error occurred', ['error' => $exception->getMessage()]);
-Log::warning('Warning message');
-Log::debug('Debug information', ['data' => $debugData]);
+Log::info('사용자 로그인', ['user_id' => 123]);
+Log::error('오류 발생', ['error' => $exception->getMessage()]);
+Log::warning('경고 메시지');
+Log::debug('디버그 정보', ['data' => $debugData]);
 ```
 
-### Direct Usage via Facade
+### Facade를 통한 직접 사용
 
-Access the OpenObserve client directly through the Facade:
+Facade를 통해 OpenObserve 클라이언트를 직접 사용할 수 있습니다:
 
 ```php
 use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
 
-// Send a single log entry
+// 단일 로그 전송
 OpenObserve::send([
     'level' => 'info',
-    'message' => 'User action',
+    'message' => '사용자 액션',
     'user_id' => 123,
     'action' => 'purchase',
 ]);
 
-// Add to batch (automatically sent when batch size is reached)
+// 배치에 추가 (배치 크기에 도달하면 자동 전송)
 OpenObserve::addToBatch([
     'level' => 'info',
-    'message' => 'Event occurred',
+    'message' => '이벤트 발생',
 ]);
 
-// Manually flush the batch
+// 수동으로 배치 플러시
 OpenObserve::flush();
 ```
 
-### Dependency Injection
+### 의존성 주입
 
 ```php
 use Minhyung\LaravelOpenObserve\OpenObserveClient;
@@ -149,38 +147,38 @@ class SomeController extends Controller
     {
         $this->openObserve->send([
             'level' => 'info',
-            'message' => 'Controller executed',
+            'message' => '컨트롤러 실행',
             'controller' => self::class,
         ]);
     }
 }
 ```
 
-### Connection Test
+### 연결 테스트
 
-Test the connection to OpenObserve using the Artisan command:
+Artisan 커맨드로 OpenObserve 연결을 테스트할 수 있습니다:
 
 ```bash
 php artisan openobserve:test
 ```
 
-This will display your configuration and send a test log entry to verify connectivity.
+설정 정보를 표시하고 테스트 로그를 전송하여 연결 상태를 확인합니다.
 
-## Testing
+## 테스트
 
 ```bash
 composer test
 ```
 
-## Security Vulnerabilities
+## 보안 취약점
 
-If you discover a security vulnerability, please email urlinee@gmail.com.
+보안 취약점을 발견한 경우 urlinee@gmail.com으로 이메일을 보내주세요.
 
-## License
+## 라이선스
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+MIT 라이선스. 자세한 내용은 [License File](LICENSE)을 참조하세요.
 
-## Credits
+## 크레딧
 
 - [Minhyung Park](https://github.com/minhyung)
 - [All Contributors](../../contributors)

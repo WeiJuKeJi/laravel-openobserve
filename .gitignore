@@ -1,2 +1,10 @@
+# Composer
 /vendor/
 composer.lock
+
+# Setting files
+.env
+settings.local.json
+
+# PHPUnit
+phpunit.xml

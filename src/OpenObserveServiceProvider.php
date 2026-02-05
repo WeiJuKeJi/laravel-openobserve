@@ -3,6 +3,7 @@
 namespace Minhyung\LaravelOpenObserve;
 
 use Illuminate\Support\ServiceProvider;
+use Minhyung\LaravelOpenObserve\Console\TestConnectionCommand;
 
 class OpenObserveServiceProvider extends ServiceProvider
 {
@@ -39,7 +40,7 @@ class OpenObserveServiceProvider extends ServiceProvider
         // Register console command
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Minhyung\LaravelOpenObserve\Console\TestConnectionCommand::class,
+                TestConnectionCommand::class,
             ]);
         }
     }

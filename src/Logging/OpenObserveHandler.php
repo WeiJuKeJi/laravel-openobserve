@@ -3,6 +3,7 @@
 namespace Minhyung\LaravelOpenObserve\Logging;
 
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Level;
 use Monolog\LogRecord;
 use Minhyung\LaravelOpenObserve\OpenObserveClient;
 
@@ -11,7 +12,7 @@ class OpenObserveHandler extends AbstractProcessingHandler
     protected OpenObserveClient $client;
     protected array $additionalFields;
 
-    public function __construct(OpenObserveClient $client, array $additionalFields = [], $level = 0, bool $bubble = true)
+    public function __construct(OpenObserveClient $client, array $additionalFields = [], int|string|Level $level = Level::Debug, bool $bubble = true)
     {
         parent::__construct($level, $bubble);
         $this->client = $client;
