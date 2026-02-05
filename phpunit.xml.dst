@@ -14,4 +14,15 @@
             <directory>src</directory>
         </include>
     </source>
+    <php>
+        <env name="OPENOBSERVE_ENABLED" value="false"/>
+        <env name="OPENOBSERVE_URL" value="http://localhost:5080"/>
+        <env name="OPENOBSERVE_ORGANIZATION" value="default"/>
+        <env name="OPENOBSERVE_STREAM" value="default"/>
+        <env name="OPENOBSERVE_EMAIL" value="test@example.com"/>
+        <env name="OPENOBSERVE_PASSWORD" value="password"/>
+        <env name="OPENOBSERVE_BATCH_SIZE" value="100"/>
+        <env name="OPENOBSERVE_TIMEOUT" value="5"/>
+        <env name="OPENOBSERVE_SSL_VERIFY" value="true"/>
+    </php>
 </phpunit>

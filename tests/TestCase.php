@@ -2,6 +2,7 @@
 
 namespace Minhyung\LaravelOpenObserve\Tests;
 
+use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Minhyung\LaravelOpenObserve\OpenObserveServiceProvider;
 
@@ -17,17 +18,17 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'OpenObserve' => \Minhyung\LaravelOpenObserve\Facades\OpenObserve::class,
+            'OpenObserve' => OpenObserve::class,
         ];
     }
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('openobserve.enabled', true);
-        $app['config']->set('openobserve.url', 'http://localhost:5080');
-        $app['config']->set('openobserve.organization', 'default');
-        $app['config']->set('openobserve.stream', 'default');
-        $app['config']->set('openobserve.auth.email', 'test@example.com');
-        $app['config']->set('openobserve.auth.password', 'password');
+        $app['config']->set('openobserve.enabled', env('OPENOBSERVE_ENABLED', true));
+        $app['config']->set('openobserve.url', env('OPENOBSERVE_URL', 'http://localhost:5080'));
+        $app['config']->set('openobserve.organization', env('OPENOBSERVE_ORGANIZATION', 'default'));
+        $app['config']->set('openobserve.stream', env('OPENOBSERVE_STREAM', 'default'));
+        $app['config']->set('openobserve.auth.email', env('OPENOBSERVE_EMAIL', 'test@example.com'));
+        $app['config']->set('openobserve.auth.password', env('OPENOBSERVE_PASSWORD', 'password'));
     }
 }
