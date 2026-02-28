@@ -1,9 +1,9 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve\Logging;
+namespace Weijukeji\LaravelOpenObserve\Logging;
 
 use Monolog\Logger;
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
 
 class OpenObserveLogger
 {

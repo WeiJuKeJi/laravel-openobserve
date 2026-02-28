@@ -1,6 +1,6 @@
 <?php
 
-use Minhyung\LaravelOpenObserve\Logging\OpenObserveLogger;
+use Weijukeji\LaravelOpenObserve\Logging\OpenObserveLogger;
 use Monolog\Logger;
 
 test('logger factory creates monolog instance', function () {

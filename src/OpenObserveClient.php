@@ -1,6 +1,6 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve;
+namespace Weijukeji\LaravelOpenObserve;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;

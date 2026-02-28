@@ -1,7 +1,7 @@
 <?php
 
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
-use Minhyung\LaravelOpenObserve\Logging\OpenObserveHandler;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\Logging\OpenObserveHandler;
 use Monolog\Level;
 use Monolog\LogRecord;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve\Tests;
+namespace Weijukeji\LaravelOpenObserve\Tests;
 
-use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
+use Weijukeji\LaravelOpenObserve\Facades\OpenObserve;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Minhyung\LaravelOpenObserve\OpenObserveServiceProvider;
+use Weijukeji\LaravelOpenObserve\OpenObserveServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {

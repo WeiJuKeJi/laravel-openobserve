@@ -1,6 +1,6 @@
 <?php
 
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
 use Illuminate\Support\Facades\Http;
 
 function makeClient(array $overrides = []): OpenObserveClient

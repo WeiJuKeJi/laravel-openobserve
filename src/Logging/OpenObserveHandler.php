@@ -1,11 +1,11 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve\Logging;
+namespace Weijukeji\LaravelOpenObserve\Logging;
 
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Level;
 use Monolog\LogRecord;
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
 
 class OpenObserveHandler extends AbstractProcessingHandler
 {

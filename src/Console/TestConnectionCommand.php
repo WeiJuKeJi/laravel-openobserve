@@ -1,9 +1,9 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve\Console;
+namespace Weijukeji\LaravelOpenObserve\Console;
 
 use Illuminate\Console\Command;
-use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
+use Weijukeji\LaravelOpenObserve\Facades\OpenObserve;
 
 class TestConnectionCommand extends Command
 {

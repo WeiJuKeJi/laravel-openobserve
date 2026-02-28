@@ -1,9 +1,9 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve;
+namespace Weijukeji\LaravelOpenObserve;
 
 use Illuminate\Support\ServiceProvider;
-use Minhyung\LaravelOpenObserve\Console\TestConnectionCommand;
+use Weijukeji\LaravelOpenObserve\Console\TestConnectionCommand;
 
 class OpenObserveServiceProvider extends ServiceProvider
 {

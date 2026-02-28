@@ -1,5 +1,5 @@
 {
-    "name": "minhyung/laravel-openobserve",
+    "name": "weijukeji/laravel-openobserve",
     "description": "Laravel package for OpenObserve integration - centralized log management and monitoring",
     "type": "library",
     "keywords": ["laravel", "openobserve", "logging", "monitoring", "observability"],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Minhyung\\LaravelOpenObserve\\": "src/"
+            "Weijukeji\\LaravelOpenObserve\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Minhyung\\LaravelOpenObserve\\Tests\\": "tests/"
+            "Weijukeji\\LaravelOpenObserve\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -39,10 +39,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Minhyung\\LaravelOpenObserve\\OpenObserveServiceProvider"
+                "Weijukeji\\LaravelOpenObserve\\OpenObserveServiceProvider"
             ],
             "aliases": {
-                "OpenObserve": "Minhyung\\LaravelOpenObserve\\Facades\\OpenObserve"
+                "OpenObserve": "Weijukeji\\LaravelOpenObserve\\Facades\\OpenObserve"
             }
         }
     },

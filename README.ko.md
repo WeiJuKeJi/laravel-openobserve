@@ -1,8 +1,8 @@
 # Laravel OpenObserve
 
 [![Tests](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml/badge.svg?branch=0.x)](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
-[![Total Downloads](https://img.shields.io/packagist/dt/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/weijukeji/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/weijukeji/laravel-openobserve)
+[![Total Downloads](https://img.shields.io/packagist/dt/weijukeji/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/weijukeji/laravel-openobserve)
 
 [OpenObserve](https://openobserve.ai)를 Laravel 애플리케이션에 통합하기 위한 패키지입니다. 로그를 OpenObserve로 전송하여 중앙 집중식 로그 관리 및 모니터링을 제공합니다.
 
@@ -25,7 +25,7 @@
 Composer를 통해 패키지를 설치합니다:
 
 ```bash
-composer require minhyung/laravel-openobserve
+composer require weijukeji/laravel-openobserve
 ```
 
 설정 파일을 퍼블리시합니다:
@@ -72,7 +72,7 @@ OPENOBSERVE_PASSWORD=your-password
 
     'openobserve' => [
         'driver' => 'custom',
-        'via' => \Minhyung\LaravelOpenObserve\Logging\OpenObserveLogger::class,
+        'via' => \Weijukeji\LaravelOpenObserve\Logging\OpenObserveLogger::class,
         'level' => env('LOG_LEVEL', 'debug'),
         'name' => 'openobserve',
     ],
@@ -112,7 +112,7 @@ Log::debug('디버그 정보', ['data' => $debugData]);
 Facade를 통해 OpenObserve 클라이언트를 직접 사용할 수 있습니다:
 
 ```php
-use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
+use Weijukeji\LaravelOpenObserve\Facades\OpenObserve;
 
 // 단일 로그 전송
 OpenObserve::send([
@@ -135,7 +135,7 @@ OpenObserve::flush();
 ### 의존성 주입
 
 ```php
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
 
 class SomeController extends Controller
 {

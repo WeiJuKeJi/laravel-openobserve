@@ -1,3 +1,3 @@
 <?php
 
-pest()->extend(Minhyung\LaravelOpenObserve\Tests\TestCase::class)->in('Feature', 'Unit');
+pest()->extend(Weijukeji\LaravelOpenObserve\Tests\TestCase::class)->in('Feature', 'Unit');

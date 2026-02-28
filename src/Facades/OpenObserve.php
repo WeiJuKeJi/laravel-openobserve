@@ -1,6 +1,6 @@
 <?php
 
-namespace Minhyung\LaravelOpenObserve\Facades;
+namespace Weijukeji\LaravelOpenObserve\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool sendBatch(array $logs)
  * @method static bool testConnection()
  *
- * @see \Minhyung\LaravelOpenObserve\OpenObserveClient
+ * @see \Weijukeji\LaravelOpenObserve\OpenObserveClient
  */
 class OpenObserve extends Facade
 {

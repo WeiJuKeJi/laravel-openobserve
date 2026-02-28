@@ -1,7 +1,7 @@
 <?php
 
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
-use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\Facades\OpenObserve;
 
 test('service provider registers client as singleton', function () {
     $client = app(OpenObserveClient::class);

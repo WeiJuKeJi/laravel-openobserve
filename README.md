@@ -1,8 +1,8 @@
 # Laravel OpenObserve
 
 [![Tests](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml/badge.svg?branch=0.x)](https://github.com/overworks/laravel-openobserve/actions/workflows/tests.yml)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
-[![Total Downloads](https://img.shields.io/packagist/dt/minhyung/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/minhyung/laravel-openobserve)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/weijukeji/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/weijukeji/laravel-openobserve)
+[![Total Downloads](https://img.shields.io/packagist/dt/weijukeji/laravel-openobserve.svg?style=flat-square)](https://packagist.org/packages/weijukeji/laravel-openobserve)
 
 A Laravel package for integrating with [OpenObserve](https://openobserve.ai). Send your logs to OpenObserve for centralized log management and monitoring.
 
@@ -27,7 +27,7 @@ A Laravel package for integrating with [OpenObserve](https://openobserve.ai). Se
 Install the package via Composer:
 
 ```bash
-composer require minhyung/laravel-openobserve
+composer require weijukeji/laravel-openobserve
 ```
 
 Publish the configuration file:
@@ -74,7 +74,7 @@ Add the OpenObserve channel to your `config/logging.php`:
 
     'openobserve' => [
         'driver' => 'custom',
-        'via' => \Minhyung\LaravelOpenObserve\Logging\OpenObserveLogger::class,
+        'via' => \Weijukeji\LaravelOpenObserve\Logging\OpenObserveLogger::class,
         'level' => env('LOG_LEVEL', 'debug'),
         'name' => 'openobserve',
     ],
@@ -114,7 +114,7 @@ Log::debug('Debug information', ['data' => $debugData]);
 Access the OpenObserve client directly through the Facade:
 
 ```php
-use Minhyung\LaravelOpenObserve\Facades\OpenObserve;
+use Weijukeji\LaravelOpenObserve\Facades\OpenObserve;
 
 // Send a single log entry
 OpenObserve::send([
@@ -137,7 +137,7 @@ OpenObserve::flush();
 ### Dependency Injection
 
 ```php
-use Minhyung\LaravelOpenObserve\OpenObserveClient;
+use Weijukeji\LaravelOpenObserve\OpenObserveClient;
 
 class SomeController extends Controller
 {
