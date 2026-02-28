@@ -51,11 +51,6 @@ class OpenObserveHandler extends AbstractProcessingHandler
         }
 
         $this->client->addToBatch($data);
-
-        // Flush immediately for error and above to ensure critical logs are not lost
-        if ($record->level->value >= Level::Error->value) {
-            $this->client->flush();
-        }
     }
 
     /**
