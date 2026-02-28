@@ -14,6 +14,11 @@ class OpenObserveLogger
     {
         $openObserveConfig = config('openobserve');
 
+        // Allow per-channel stream override
+        if (isset($config['stream'])) {
+            $openObserveConfig['stream'] = $config['stream'];
+        }
+
         // Create OpenObserve client
         $client = new OpenObserveClient($openObserveConfig);
 
